@@ -3,7 +3,6 @@ include 'template/head.php';
 include 'template/nav.php';
 include 'template/database.php';
 $result= $mysqli->query("SELECT * FROM med_karta");
-include 'template/database.php';
 ?>
 <div class="container">
     <div class="row">
@@ -15,12 +14,12 @@ include 'template/database.php';
                     <th>№ медкарты</th>
                     <th>Животное</th>
                     <th>Хозяин животного</th>
-                    <th>Дата записи на прием</th>
                     <th>Врач</th> 
                     <th>Услуга</th>
                     <th>Диагноз</th>  
                     <th>Описание</th>
-                    <th>Назначение</th>          
+                    <th>Назначение</th>
+                    <th>Дата записи на прием</th>         
                 </tr>
             </table>
             <?php
@@ -28,12 +27,12 @@ include 'template/database.php';
                 echo '<tr><td>'.$row['id_karta'].'</td>
 	            <td>'.$row['id_zhivotnoe'].'</td>
 	            <td>'.$row['id_hoziain_zhivotnogo'].'</td>
-                <td>'.$row['data'].'</td>
                 <td>'.$row['id_vrach'].'</td>
-                <td>'.$row['id_usluga'].'</td>
+                <td>'.$row['id_uslugi'].'</td>
                 <td>'.$row['diagnoz'].'</td>
                 <td>'.$row['description'].'</td>
-	            <td>'.$row['naznachenie'].'</td></tr>';
+                <td>'.$row['naznachenie'].'</td>
+	            <td>'.$row['data'].'</td></tr>';
             }
             $result->free(); //освободить память, занятую результатом
             $mysqli->close(); //закрыть соединение с БД
