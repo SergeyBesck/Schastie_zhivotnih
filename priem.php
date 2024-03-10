@@ -2,7 +2,6 @@
 include 'template/head.php';
 include 'template/nav.php';
 include 'template/database.php';
-$result= $mysqli->query("SELECT * FROM med_karta");
 ?>
 <div class="container">
     <div class="row">
@@ -34,9 +33,8 @@ $result= $mysqli->query("SELECT * FROM med_karta");
                 <td>'.$row['naznachenie'].'</td>
 	            <td>'.$row['data'].'</td></tr>';
             }
-            $result->free(); //освободить память, занятую результатом
-            $mysqli->close(); //закрыть соединение с БД
             ?>
+        </table>
         </div>
         <div class="col-lg-2"></div>
     </div>
