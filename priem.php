@@ -42,8 +42,8 @@ $result1 = $mysqli->query("select * from med_karta");
                     <td>Дата записи на прием</td>         
                 </tr>
             <?php
-            $table = $mysqli->query("select * from med_karta");
             foreach($table as $row){
+                $table = $mysqli->query("select * from med_karta");
                 echo '<tr><td>'.$row['id_karta'].'</td>
 	            <td>'.$row['id_zhivotnie'].'</td>
 	            <td>'.$row['id_hoziain_zhivotnogo'].'</td>
