@@ -11,24 +11,35 @@ $result1 = $mysqli->query("select * from med_karta");
             <h2>Записи на прием</h2>
             <form action="" class="form-inline" role="form" name="form" method="POST">
                 <h3>Новая запись</h3>
-                <label for="nomer" class="form-label" id="nomer">Выберите номер медкарты</label>
-                <select name="nomer" class="form-select" id="nomer">
+                <label for="nomer" class="form-label" id="">Выберите номер медкарты</label>
+                <select name="nomer" class="form-select" id="">
                     <?php
                     foreach($result1 as $list){
                         echo "<option value=".$list['id_karta'].">".$list['id_karta']."</option>";
                     }
                     ?>
                 </select>
-                <label for="jaloba" class="form-label" id="jaloba">Жалоба пациента</label>
+                <label for="zhaloba" class="form-label" id="">Жалоба пациента</label>
                 <input type="text" class="form-control" id="jaloba" required>
-                <label for="descripton" class="form-label" id="decription" >Данные осмотра</label>
+                <label for="descripton" class="form-label" id="" >Данные осмотра</label>
                 <textarea class="form-control" id="description" rows="5" required></textarea>
-                <label for="diagnoz" class="form-label" id="diagnoz">Диагноз</label>
+                <label for="diagnoz" class="form-label" id="">Диагноз</label>
                 <input type="text" class="form-control" id="diagnoz" required>
-                <label for="naznachenie" class="form-label" id="naznachenie">Назначение</label>
+                <label for="naznachenie" class="form-label" id="">Назначение</label>
                 <input type="text" class="form-control" id="naznachenie" required>
                 <input type="submit" class="btn btn-primary" value="Отправить">
             </form>
+            <?php
+            if(!empty($_POST)){
+                $id_karta=$_POST['id_karta'];
+                $jaloba=$_POST['jaloba'];
+                $descripton=$_POST['description'];
+                $diagnoz=$_POST['diagnoz'];
+                $naznachenie=$_POST['naznachenie'];
+                $sql="update med_karta set jaloba=$jaloba, description=$description, diagnoz=$diagnoz, naznachenie=$naznachenie where id_karta=$id_karta";
+                $result2 = $mysqli->query($sql);
+            }
+            ?>
             <table class="table">
                 <tr>
                     <td>№ медкарты</td>
