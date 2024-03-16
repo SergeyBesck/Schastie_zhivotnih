@@ -18,7 +18,7 @@ $result1 = $mysqli->query("select * from med_karta");
                         echo "<option value=".$list['id_karta'].">".$list['id_karta']."</option>";
                     }
                     ?>
-                </select>
+                </select><br>
                 <input type="submit" class="btn btn-primary" href="priem.php" value="Отправить">
             </form>
         </div>
